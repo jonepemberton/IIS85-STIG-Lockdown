@@ -349,6 +349,7 @@ IISW-SI-000264/ V-76891
     
 # The following command unlocks the asp section so it may be configured without error. The section will be locked again later in the script.
 Set-WebConfiguration -filter /system.webServer/asp -PSPath "MACHINE/WEBROOT/APPHOST" -metadata overrideMode -value Allow -ea Stop
+Set-WebConfiguration -filter /system.webServer/security/access -PSPath "MACHINE/WEBROOT/APPHOST" -metadata overrideMode -value Allow -ea Stop
 
 write-log -msg "Configuring for IISW-SI-000225-229,230,233-235,242,244,246,249 / V-76817,V-76819,V-76821,V-76823,V-76825,V-76829,V-76835,V-76837,V-76839,V-76851,V-76855,V-76859,V-76861"
     Foreach ($w in $websites.name)
